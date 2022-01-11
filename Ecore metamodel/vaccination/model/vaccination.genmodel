@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/vaccination/src-gen" creationIcons="false" editDirectory="/vaccination.edit/src-gen"
+    editorDirectory="/vaccination.editor/src-gen" modelPluginID="vaccination" modelName="Vaccination"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>vaccination.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Vaccination" disposableProviderFactory="true" ecorePackage="vaccination.ecore#/">
+    <genClasses ecoreClass="vaccination.ecore#//VaccinePlan">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vaccination.ecore#//VaccinePlan/resource"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vaccination.ecore#//VaccinePlan/city"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vaccination.ecore#//VaccinePlan/allocation"/>
+    </genClasses>
+    <genClasses ecoreClass="vaccination.ecore#//SrcCity"/>
+    <genClasses ecoreClass="vaccination.ecore#//Resource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vaccination.ecore#//Resource/demand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vaccination.ecore#//Resource/amount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vaccination.ecore#//Resource/price"/>
+    </genClasses>
+    <genClasses ecoreClass="vaccination.ecore#//Allocation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vaccination.ecore#//Allocation/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vaccination.ecore#//Allocation/srccity"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vaccination.ecore#//Allocation/dstcity"/>
+    </genClasses>
+    <genClasses ecoreClass="vaccination.ecore#//Vaccine"/>
+    <genClasses ecoreClass="vaccination.ecore#//DstCity"/>
+    <genClasses ecoreClass="vaccination.ecore#//City">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vaccination.ecore#//City/budget"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vaccination.ecore#//City/resource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vaccination.ecore#//City/numPersons"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vaccination.ecore#//City/vaccinatedPersons"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
