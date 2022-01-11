@@ -15,7 +15,7 @@ var X {i in Cities, j in Cities} >= 0 binary;
 	#sum{i in Cities, j in Cities} (TransportCost[i,j]+VaccinePrice[j])*X[i,j];   
 
 # objective function 2
-maximize cost:
+maximize coverage:
 	sum{i in Cities, j in Cities} (VaccineAmount[i]/VaccineDemand[j])*X[i,j]; 
 	 
 subject to min_demand {j in Cities}:
