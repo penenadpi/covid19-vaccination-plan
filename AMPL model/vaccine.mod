@@ -10,12 +10,19 @@ param Budget {i in Cities};
 # variable declaration
 var X {i in Cities, j in Cities} >= 0 binary;
 
-# objective function
-minimize cost:
-	sum{i in Cities, j in Cities} (TransportCost[i,j]+VaccinePrice[j])*X[i,j];   
+# objective function 1
+#minimize cost:
+	#sum{i in Cities, j in Cities} (TransportCost[i,j]+VaccinePrice[j])*X[i,j];   
+
+# objective function 2
+maximize cost:
+	sum{i in Cities, j in Cities} (VaccineAmount[i]/VaccineDemand[j])*X[i,j]; 
 	 
 subject to min_demand {j in Cities}:
-	VaccineAmount[j]-sum{i in Cities}(X[i,j]*VaccineDemand[i])<=VaccineDemand[j];
+	1.1*(VaccineAmount[j]- VaccineDemand[j])<=sum{i in Cities}(X[i,j]*(VaccineAmount[i]-VaccineDemand[i]));
+
+subject to demand_satisf {i in Cities}:
+	VaccineDemand[i]-VaccineAmount[i] <= sum{j in Cities}(X[i,j]*(VaccineAmount[j]-VaccineDemand[j]));
 	
 subject to budget_limit {i in Cities}:
 	Budget[i]>=sum{j in Cities}(TransportCost[i,j]+VaccinePrice[j])*X[i,j];
