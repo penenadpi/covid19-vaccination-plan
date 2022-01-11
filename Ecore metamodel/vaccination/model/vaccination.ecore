@@ -19,6 +19,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="srccity" eType="#//SrcCity"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dstcity" eType="#//DstCity"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="transportCost" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Vaccine" eSuperTypes="#//Resource"/>
   <eClassifiers xsi:type="ecore:EClass" name="DstCity" eSuperTypes="#//City"/>
